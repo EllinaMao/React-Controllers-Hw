@@ -7,9 +7,4 @@
     <RootNamespace>React_Controllers_Hw</RootNamespace>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="Services\" />
-    <Folder Include="ViewModels\" />
-  </ItemGroup>
-
 </Project>
