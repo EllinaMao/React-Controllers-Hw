@@ -1,8 +1,46 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@using React_Controllers_Hw.ViewModels
+@model List<CourseViewModel>
+
+@{
+    ViewData["Title"] = "Курсы";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container mt-4">
+    <h1 class="text-center mb-4">Доступные курсы</h1>
+
+    <div class="row">
+        @foreach (var course in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">@course.Title</h5>
+                        <p class="card-text">@course.Description</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0">
+                        @if (course.IsSubscribed)
+                        {
+                            <form method="post" action="/Home/Subscribe">
+                                <input type="hidden" name="id" value="@course.Id" />
+            
+                                <button type="submit" class="btn btn-outline-success w-100" title="Нажмите, чтобы отписаться">
+                                    Отписаться
+                                </button>
+                            </form>
+                        }
+                        else
+                        {
+                            <form method="post" action="/Home/Subscribe">
+                                <input type="hidden" name="id" value="@course.Id" />
+            
+                                <button type="submit" class="btn btn-primary w-100">
+                                    Подписаться
+                                </button>
+                            </form>
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
 </div>

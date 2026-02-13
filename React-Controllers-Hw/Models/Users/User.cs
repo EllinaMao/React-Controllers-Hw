@@ -2,7 +2,6 @@
 {
     public class User
     {
-        public int Id = 1;
-        public List<Guid> SubscribedCourseIds { get; set; } = new List<Guid>();
+        public Guid Id { get; set; } = new Guid("C217F3EA-B781-44ED-B6CE-8A6638E4655C");
     }
 }

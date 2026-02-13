@@ -1,5 +1,10 @@
+using React_Controllers_Hw.Models.Courses;
+using React_Controllers_Hw.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddSingleton<ICourceRepository, CourceRepository>();
+builder.Services.AddSingleton<CourceServices>();
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
